@@ -17,7 +17,7 @@
 }
 
 body{
-    background-color: #f2f2f2;
+    background-color: #e73e3e;
 }
 
 /*estilos cabecera*/
@@ -127,7 +127,7 @@ nav ul li a:hover{
 }
 
 .box{
-    background: white;
+    background: rgb(255, 238, 4);
     width: 95%;
     min-height: 930px;
     padding: 20px;
