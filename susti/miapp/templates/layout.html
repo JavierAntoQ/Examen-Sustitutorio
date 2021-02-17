@@ -1,0 +1,63 @@
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+
+            {% endblock title %}
+            | Quispe Javier  
+        </title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    </head>
+    <body>
+        <header>
+            <div id="logotipo">
+                <img src={% static 'images/covid.jpg' %}>
+                <h1>
+                    Sala situacional
+                </h1>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% url 'inicio' %}"> Inicio </a> 
+                </li>
+               <li> 
+                    <a href="{% url 'listar_regiones' %}"> Listado de regiones </a>                 
+                </li>
+                <li>
+                    <a href="{% url 'create_region' %}"> Crear region </a>  
+                </li>
+                <li> 
+                    <a href="{% url 'listar_empleados' %}"> Listado de Empleados </a>                 
+                </li>
+                <li>
+                    <a href="{% url 'create_empleado' %}"> Crear empleado </a>  
+                </li>
+
+            </ul>
+        </nav>
+
+        <div class="barra">
+            <span class="esquina-izquierda"></span>
+            <span class="relleno-barra"></span>
+            <span class="esquina-derecha"></span>
+        </div>
+
+        <div id="content">
+            <div class="box">
+                {% block content %}
+                    <strong>
+                        Contenido en Layout (Padre, mensaje por defecto, cuando no se define en los hijos)
+                    </strong>
+                {% endblock content %}
+            </div>
+        </div>
+        <footer>
+            UNTELS - Lenguaje de Programacion III  &copy; Quispe Javier - {% now "d/m/y h:m:s" %}
+        </footer>
+    </body>
+</html>
