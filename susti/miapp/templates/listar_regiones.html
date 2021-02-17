@@ -5,5 +5,29 @@
 {% endblock title %}
 
 {% block content %}
-    {{mensaje}}
+        <h1 class="title"> {{titulo}} </h1>
+        {% if message %}
+            {% for message in messages %}
+                <div clss="messages">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    <ul>
+        {% for region in regiones %}
+            <li>
+                <h4> 
+                    {{region.id}} - {{region.name}}, {{region.cases}} Casos
+                </h4>
+                <span>
+                    Fecha: {{region.date}}
+                </span>
+                <p>
+                    <a href="{% url 'eliminar_region' id=region.id %}">
+                        Eliminar
+                    </a>
+                </p>
+            </li>
+         {% endfor %}
+    </ul>
 {% endblock content %}
