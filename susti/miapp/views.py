@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from miapp.models import Region
+from miapp.models import Region, Employee
 from django.contrib import messages
 # Create your views here.
 layout = """
@@ -56,18 +56,40 @@ def create_region(request):
         'mensaje':'Agregar region'
     })
 
+
+
+def listar_empleados(request):
+    empleados = Employee.objects.all
+    return render(request, 'listar_empleados.html',{
+        'empleados' : empleados,
+        'titulo' : 'LISTADO DE EMPLEADOS',
+    })
+
+def eliminar_empleado(request, id):
+    empleado = Employee.objects.get(pk=id)
+    empleado.delete()
+    return redirect('listar_empleados')
+
+def save_empleado(request):
+    if request.method == 'POST':
+        fullname = request.POST['fullname']
+        job = request.POST['job']
+        state = request.POST['state']
+
+        empleado = Employee(
+            fullname = fullname, 
+            job = job,
+            state = state
+    )
+        empleado.save()
+        messages.success(request, f'Se agrego correctamente el empleado {empleado.id}')
+        return redirect('listar_empleados')
+        
 def create_empleado(request):
 
     return render(request, 'create_empleado.html',{
         'titulo':'Crear un nuevo empleado',
-        'mensaje':'Agregar empleado'
-    })
-
-def listar_empleados(request):
-
-    return render(request, 'listar_empleados.html',{
-        'titulo':'Lista de empleados',
-        'mensaje':'Listado de empleados'
+        'mensaje':'Agregar Empleado'
     })
 
 

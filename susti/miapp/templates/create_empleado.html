@@ -6,6 +6,26 @@
 
 {% block content %}
     {{mensaje}}
+    <h1 class="title">
+        Formulario en Django
+    </h1>
+    <form action="{% url 'save_empleado' %}" method="POST">
+        {% csrf_token %}
+
+        <label for="fullname"> Nombre completo del empleado </label>
+        <input type="text" name="fullname" />
+
+        <label for="job"> Trabajo </label>
+        <input type="text" name="job" />
+
+        <label for="state"> Estado </label>
+        <select name="state">
+            
+            <option value="0">Activo</option>
+            <option value="1">No activo</option>
+        </select>
+
+        <input type="submit" value="Agregar"/>
 {% endblock content %}
 
 

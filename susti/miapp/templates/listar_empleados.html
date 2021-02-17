@@ -5,5 +5,26 @@
 {% endblock title %}
 
 {% block content %}
-    {{mensaje}}
+        <h1 class="title"> {{titulo}} </h1>
+        {% if message %}
+            {% for message in messages %}
+                <div clss="messages">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    <ul>
+        {% for empleado in empleados %}
+            <li>
+                <h4> 
+                    {{empleado.id}} - {{empleado.fullname}}, {{empleado.job}}
+                </h4>
+                <p>
+                    <a href="{% url 'eliminar_empleado' id=empleado.id %}">
+                        Eliminar
+                    </a>
+                </p>
+            </li>
+         {% endfor %}
+    </ul>
 {% endblock content %}
