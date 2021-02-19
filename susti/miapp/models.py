@@ -14,7 +14,7 @@ class Region(models.Model):
     class Meta:
         verbose_name = "Region"
         verbose_name_plural = "Regiones"
-        ordering = ['name']
+        ordering = ['id']
     
     def __str__(self):
         return f"{self.name}, Casos: {self.cases}"
@@ -30,3 +30,8 @@ class Employee(models.Model):
     class Meta:
         verbose_name = "Empleado"
         verbose_name_plural = "Empleados"
+        ordering = ['id']
+
+    def __str__(self):
+        return f"{self.fullname}, Puesto: {self.job} - {self.state}"
+    

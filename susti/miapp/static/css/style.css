@@ -16,6 +16,11 @@
     margin-bottom: 10px;
 }
 
+.clearfix{
+    clear: both;
+    float: none;
+}
+
 body{
     background-color: #e73e3e;
 }
@@ -140,16 +145,14 @@ nav ul li a:hover{
     width: 40%;
 }
 
-.box form input, .box form label{
+.box form input, 
+.box form label{
     display: block;
     padding: 5px;
     padding-left: 0px;
 }
 
-.box form input[
-    type="text"
-],
-
+.box form input[type="text"],
 .box form textarea,
 .box form select{
     width: 100%;
@@ -171,6 +174,19 @@ nav ul li a:hover{
     color: white;
     transition: 300ms all;
 }
+
+.rojo{
+    color: red;
+}
+
+.message{
+    padding: 20px;
+    background: #ce2020;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .box form input[type="submit"]:hover,
 .box form input[type="button"]:hover,
 .box form button:hover{
@@ -185,13 +201,99 @@ nav ul li a:hover{
     margin-top: 5px;
     margin-bottom: 4px;
 }
-.message{
-    padding: 20px;
-    background: #ce2020;
-    color: white;
-    text-align: center;
+
+/*Estilos para el listado con image*/
+
+.empleado-item{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 15px;
+    border-bottom: 1px solid black;
+    clear: both;
+}
+
+.empleado-item .image{
+    width: 200px;
+    height: 200px;
+    float: left;
+    overflow: hidden;
+}
+
+.empleado-item .image img{
+    height: 200px;
+}
+
+.empleado-item .data{
+    float: left;
+    padding: 15px;
+    padding-top: 0px;
+}
+
+.empleado-item h2{
+    display: block;
+    font-size: 25px;
+    color: #333;
     margin-bottom: 10px;
 }
+
+.empleado-item span.date{
+    display: block;
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.region-item{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 15px;
+    border-bottom: 1px solid black;
+    clear: both;
+}
+
+.region-item .image{
+    width: 200px;
+    height: 200px;
+    float: left;
+    overflow: hidden;
+}
+
+.region-item .image img{
+    height: 200px;
+}
+
+.region-item .data{
+    float: left;
+    padding: 15px;
+    padding-top: 0px;
+}
+
+.region-item h2{
+    display: block;
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.region-item span.date{
+    display: block;
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.btn{
+    padding: 10px;
+    background: rgb(207, 48, 48);
+    color: white;
+    border: 1px solid black;
+    display: block;
+    margin-top: 15px;
+    width: 100px;
+    text-align: center;
+}
+
+
 
 /*estilos para el footer*/
 footer{

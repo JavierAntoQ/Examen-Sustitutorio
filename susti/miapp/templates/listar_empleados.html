@@ -6,25 +6,37 @@
 
 {% block content %}
         <h1 class="title"> {{titulo}} </h1>
-        {% if message %}
+        {% if messages %}
             {% for message in messages %}
-                <div clss="messages">
+                <div class="message">
                     {{message}}
                 </div>
             {% endfor %}
         {% endif %}
-    <ul>
+
         {% for empleado in empleados %}
-            <li>
-                <h4> 
-                    {{empleado.id}} - {{empleado.fullname}}, {{empleado.job}}
-                </h4>
-                <p>
-                    <a href="{% url 'eliminar_empleado' id=empleado.id %}">
-                        Eliminar
-                    </a>
-                </p>
-            </li>
+            <div class="empleado-item">
+                {% if empleado.image != 'null' %}
+                    <div class="image">
+                        <img src="{{empleado.image.url}}"/>
+                    </div>
+                {% endif %}
+                <div class="data">
+                    <h2> 
+                        {{empleado.id}} - {{empleado.fullname}}, {{empleado.job}}
+                    </h2>
+                    <span class ="date">
+                        Creado: {{empleado.creado}}
+                    </span>
+                    <p>
+                        <a href="{% url 'eliminar_empleado' id=empleado.id %}" class="btn btn-delete">
+                            Eliminar
+                        </a>
+                    </p>
+                </div>
+                <div class="clearfix">
+                </div>
+            </div>
          {% endfor %}
-    </ul>
+    
 {% endblock content %}

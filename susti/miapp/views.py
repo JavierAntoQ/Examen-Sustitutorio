@@ -2,15 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from miapp.models import Region, Employee
 from django.contrib import messages
 # Create your views here.
-layout = """
-    <h1>
-        <ul>
-            <li>
-                <a href="/inicio"> INICIO </a> 
-            </li>
-        </ul>
-    </h1>
-    """
+
 def index(request):
 
     return render(request, 'index.html', {
@@ -22,7 +14,7 @@ def listar_regiones(request):
     regiones = Region.objects.all
     return render(request, 'listar_regiones.html',{
         'regiones' : regiones,
-        'titulo' : 'LISTADO DE REGIONES',
+        'titulo' : 'Lista de regiones',
     })
 
 def eliminar_region(request, id):
@@ -52,8 +44,7 @@ def save_region(request):
 def create_region(request):
 
     return render(request, 'create_region.html',{
-        'titulo':'Crear una nueva region',
-        'mensaje':'Agregar region'
+        'titulo':'Crear Region',
     })
 
 
@@ -62,7 +53,7 @@ def listar_empleados(request):
     empleados = Employee.objects.all
     return render(request, 'listar_empleados.html',{
         'empleados' : empleados,
-        'titulo' : 'LISTADO DE EMPLEADOS',
+        'titulo' : 'Lista de empleados',
     })
 
 def eliminar_empleado(request, id):
@@ -88,8 +79,7 @@ def save_empleado(request):
 def create_empleado(request):
 
     return render(request, 'create_empleado.html',{
-        'titulo':'Crear un nuevo empleado',
-        'mensaje':'Agregar Empleado'
+        'titulo':'Crear Empleado',
     })
 
 

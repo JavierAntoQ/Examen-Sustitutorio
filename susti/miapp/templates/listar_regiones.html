@@ -6,28 +6,36 @@
 
 {% block content %}
         <h1 class="title"> {{titulo}} </h1>
-        {% if message %}
+        {% if messages %}
             {% for message in messages %}
-                <div clss="messages">
+                <div class="message">
                     {{message}}
                 </div>
             {% endfor %}
         {% endif %}
-    <ul>
+
         {% for region in regiones %}
-            <li>
-                <h4> 
-                    {{region.id}} - {{region.name}}, {{region.cases}} Casos
-                </h4>
-                <span>
-                    Fecha: {{region.date}}
-                </span>
-                <p>
-                    <a href="{% url 'eliminar_region' id=region.id %}">
-                        Eliminar
-                    </a>
-                </p>
-            </li>
+            <div class="region-item">
+                {% if region.image != 'null' %}
+                    <div class="image">
+                        <img src="{{region.image.url}}"/>
+                    </div>
+                {% endif %}
+                <div class="data">
+                    <h2> 
+                        {{region.id}} - {{region.name}}, {{region.cases}} Casos
+                    </h2>
+                    <span class="date">
+                        Fecha: {{region.date}}
+                    </span>
+                    <p>
+                        <a href="{% url 'eliminar_region' id=region.id %}" class="btn btn-delete">
+                            Eliminar
+                        </a>
+                    </p>
+                </div>
+                <div class="clearfix">
+                </div>
+            </div>
          {% endfor %}
-    </ul>
 {% endblock content %}
